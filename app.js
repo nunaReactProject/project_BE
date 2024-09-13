@@ -1,10 +1,10 @@
 const express = require('express');
-import { process } from './node_modules/ipaddr.js/lib/ipaddr.js.d';
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const dotenv = require('dotenv');
+const indexRouter = require('./routes/index');
 dotenv.config();
 
 const app = express();
