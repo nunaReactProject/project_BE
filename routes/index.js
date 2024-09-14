@@ -6,7 +6,7 @@ const productApi = require('../entitys/product/product.api.js');
 const router = express.Router();
 
 router.use('/user', userApi);
-// router.use('/auth', authApi);
+router.use('/auth', authApi);
 // router.use('/product', productApi);
 
 module.exports = router;
