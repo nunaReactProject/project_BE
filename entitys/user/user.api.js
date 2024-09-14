@@ -15,4 +15,7 @@ router.post(
   intercepter
 );
 
+// 로그아웃
+router.post('/logout', authController.logout, authService.logout, intercepter);
+
 module.exports = router;
