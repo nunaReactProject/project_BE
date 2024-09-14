@@ -24,4 +24,23 @@ userRepository.validId = async (req, res, next) => {
   next();
 };
 
+// 회원 정보 조회
+userRepository.getUserInfo = async (req, res, next) => {
+  try {
+    if (req.statusCode === 400) return next();
+
+    const { validTokenId } = req;
+
+    const user = await User.findById(validTokenId);
+
+    if (!user) throw new Error('회원 정보를 조회할 수 없습니다.');
+
+    req.user = user;
+  } catch (e) {
+    req.statusCode = 400;
+    req.error = e.message;
+  }
+  next();
+};
+
 module.exports = userRepository;

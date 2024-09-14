@@ -25,4 +25,20 @@ userService.createUser = async (req, res, next) => {
   next();
 };
 
+// 회원 정보 조회
+userService.getUserInfo = async (req, res, next) => {
+  try {
+    if (req.statusCode === 400) return next();
+
+    const { user } = req;
+
+    req.statusCode = 200;
+    req.data = user;
+  } catch (e) {
+    req.statusCode = 400;
+    req.error = e.message;
+  }
+  next();
+};
+
 module.exports = userService;
