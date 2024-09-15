@@ -6,6 +6,6 @@ const productService = require('./service/product.service');
 
 const router = express.Router();
 
-router.post('/', intercepter);
+router.post('/', authRepository.authenticate, productController.createOrder, intercepter);
 
 module.exports = router;

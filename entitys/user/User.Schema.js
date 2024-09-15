@@ -6,11 +6,22 @@ dotenv.config();
 const Schema = mongoose.Schema;
 const JWT_SECRET_KEY = process.env.JWT_SECRET_KEY;
 
-const userSchema = Schema(
+const userSchema = new Schema(
   {
     userId: { type: String, required: true, unique: true },
     password: { type: String, required: true },
     name: { type: String, required: true },
+    orders: [
+      {
+        id: { type: String },
+        title: { type: String },
+        date: { type: String },
+        time: { type: String },
+        running: { type: String },
+        location: { type: String },
+        poster: { type: String },
+      },
+    ],
   },
   { timestamps: true }
 );

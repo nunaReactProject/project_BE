@@ -7,6 +7,6 @@ const router = express.Router();
 
 router.use('/user', userApi);
 router.use('/auth', authApi);
-// router.use('/product', productApi);
+router.use('/product', productApi);
 
 module.exports = router;

@@ -5,18 +5,16 @@ const Schema = mongoose.Schema;
 
 const productSchema = Schema(
   {
-    items: [
-      {
-        id: { type: String },
-        title: { type: String },
-        date: { type: String },
-        time: { type: String },
-        running: { type: String },
-        location: { type: String },
-        poster: { type: String },
-      },
-    ],
+    userId: { type: mongoose.ObjectId, ref: User, required: true },
+    productId: { type: String },
+    title: { type: String },
+    date: { type: String },
+    time: { type: String },
+    running: { type: String },
+    location: { type: String },
+    poster: { type: String },
   },
+
   { timeStamp: true }
 );
 
